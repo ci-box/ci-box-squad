@@ -18,7 +18,7 @@ squad --bind 0.0.0.0:${SQUAD_PORT} &
 #fixme
 sleep 120
 
-squad-admin createsuperuser --noinput --username ${1} --email ${3} || true
+squad-admin users add --superuser --passwd ${2} --email ${3} ${1}
 squad-admin users set-token ${1} ${4}
 
 for project in ${SQUAD_PROJECTS} ; do
